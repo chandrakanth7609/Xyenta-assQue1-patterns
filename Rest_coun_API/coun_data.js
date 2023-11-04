@@ -11,20 +11,21 @@ fetch("https://restcountries.com/v3.1/all")
     .then(data => {
         // Loop through the countries data
         data.forEach(country => {
-            const countryCard = document.createElement("div");
-            countryCard.classList.add("country-card");
+                const countryCard = document.createElement("div");
+                countryCard.classList.add("country-card");
 
-            // Display relevant information for each country
-            countryCard.innerHTML = `
+                // Display relevant information for each country
+                countryCard.innerHTML = `
                 <h2>${country.name?.common || "N/A"}</h2>
                 <p>Population: ${country.population?.toLocaleString() || "N/A"}</p>
                 <p>Languages: ${country.languages ? Object.values(country.languages).join(", ") : "N/A"}</p>
-                <p>Currency: ${country.currencies ? (country.currencies[0]?.name || "N/A") + ` (${country.currencies[0]?.code || "N/A"})` : "N/A"}</p>
+                
                 <p>Timezones: ${country.timezones ? country.timezones.join(", ") : "N/A"}</p>
-            `;
+            `   ;
 
-            countriesList.appendChild(countryCard);
-        });
+                countriesList.appendChild(countryCard);
+            });
+
     })
     .catch(error => {
         console.error("Error fetching data:", error);

@@ -15,9 +15,11 @@ c. Ex Height = 4 and Alignment = Right
 """
 
 def print_pattern(height, alignment):
+    num = height
     if alignment == 'Left':
         for i in range(1, height + 1):
-            print('#' * i)
+            print('#' * num)
+            num -= 1
     elif alignment == 'Right':
         for i in range(1, height + 1):
             left_spaces = ' ' * (height - i)
